@@ -291,17 +291,23 @@ gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
 # gsettings reset org.gnome.shell.extensions.dash-to-dock dash-max-icon-size
 
 echo '########## <configure git alias> ##########'
+git config --global fetch.prune true
+git config --global help.autocorrect 1
 git config --global alias.l "!git log --pretty=format:'%C(blue)%h%C(red)%d %C(white) %s %C(cyan)[%cn] %C(green)%cr'"
 git config --global alias.c "!git add . && git commit"
 git config --global alias.s "!git status -sb"
 git config --global alias.branches "!git branch -a"
 git config --global alias.amend "!git add . && git commit --amend --no-verify"
 git config --global alias.fetch "!git fetch --all"
+git config --global alias.backup "!git ls-files --others --exclude-standard -z |\
+xargs -0 tar rvf ~/backup-untracked.zip"
+git config --global alias.clean-merged "!git branch --merged develop | grep -v "develop" | xargs -n 1 git branch -d"
 
 echo '########## <installing npm global modules> ##########'
 npm install --global yarn
 npm install -g npm-check-updates
 npm install -g ntl
+npm install -g npkill
 
 source ~/.zshrc
 
