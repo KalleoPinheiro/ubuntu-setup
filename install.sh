@@ -304,7 +304,7 @@ xargs -0 tar rvf ~/backup-untracked.zip"
 git config --global alias.clean-merged "!git branch --merged develop | grep -v "develop" | xargs -n 1 git branch -d"
 
 echo '########## <installing npm global modules> ##########'
-npm install --global yarn
+npm install -g yarn
 npm install -g npm-check-updates
 npm install -g ntl
 npm install -g npkill
