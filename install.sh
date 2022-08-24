@@ -263,6 +263,9 @@ echo '########## <installing gnome tweeks> ##########'
 sudo apt install gnome-tweaks
 gsettings set org.gnome.mutter center-new-windows true
 
+echo '########## <installing xclip> ##########'
+sudo apt-get install xclip
+
 echo '########## <installing ulauncher> ##########'
 sudo add-apt-repository ppa:agornostal/ulauncher
 sudo apt update
@@ -299,8 +302,7 @@ git config --global alias.s "!git status -sb"
 git config --global alias.branches "!git branch -a"
 git config --global alias.amend "!git add . && git commit --amend --no-verify"
 git config --global alias.fetch "!git fetch --all"
-git config --global alias.backup "!git ls-files --others --exclude-standard -z |\
-xargs -0 tar rvf ~/backup-untracked.zip"
+git config --global alias.backup "!git ls-files --others --exclude-standard -z | xargs -0 tar rvf ~/backup-untracked.zip"
 git config --global alias.clean-merged "!git branch --merged develop | grep -v "develop" | xargs -n 1 git branch -d"
 
 echo '########## <installing npm global modules> ##########'
